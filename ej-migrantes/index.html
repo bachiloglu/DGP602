@@ -31,7 +31,7 @@
         sel.option('Bolivia');
         sel.option('Haiti');
         sel.changed(mySelectEvent);
-        text("inmigrantes venezolanos en Chile", width / 2, 50);
+        text("migrantes venezolanos en Chile", width / 2, 50);
         for (var x = 0; x < 5; x++) {
             ellipse(100 * (x + 1), height / 2, data[x].continuidad * 10);
             text(data[x].universidad, 100 * (x + 1), (height / 2) + 50)
@@ -44,38 +44,51 @@
         background(200);
         opcion = sel.value();
 
-        if (opcion == "continuidad") {
+        if (opcion == "Venezuela") {
 
-            text("% de titulados con continuidad de estudio", width / 2, 50);
+            text("migrantes venezolanos en Chile", width / 2, 50);
             for (var x = 0; x < 5; x++) {
                 ellipse(100 * (x + 1), height / 2, data[x].continuidad * 10);
                 text(data[x].universidad, 100 * (x + 1), (height / 2) + 50)
                 fill(0);
             }
 
-        } else if (opcion == "retención") {
+        } else if (opcion == "Peru") {
 
-            text("Retención de 1er. año", width / 2, 50);
+            text("migrantes peruanos en Chile", width / 2, 50);
             for (var x = 0; x < 5; x++) {
                 ellipse(100 * (x + 1), height / 2, data[x].retencion / 2);
                 text(data[x].universidad, 100 * (x + 1), (height / 2) + 50)
                 fill(0);
             }
 
-        } else if (opcion == "duración") {
+        } else if (opcion == "Colombia") {
 
-            text("Duración real (semestres)", width / 2, 50);
+            text("migrantes colombianos en Chile", width / 2, 50);
             for (var x = 0; x < 5; x++) {
                 ellipse(100 * (x + 1), height / 2, data[x].duracion * 3);
                 text(data[x].universidad, 100 * (x + 1), (height / 2) + 50)
                 fill(0);
             }
 
-        } else {
-            text("Say what?!", 100, 200);
-        }
+        } else if (opcion == "Bolivia") {
 
-    }
+            text("migrantes bolivianos en Chile", width / 2, 50);
+            for (var x = 0; x < 5; x++) {
+                ellipse(100 * (x + 1), height / 2, data[x].duracion * 3);
+                text(data[x].universidad, 100 * (x + 1), (height / 2) + 50)
+                fill(0);
+            }
+
+          } else if (opcion == "Haiti") {
+
+              text("migrantes haitianos en Chile", width / 2, 50);
+              for (var x = 0; x < 5; x++) {
+                  ellipse(100 * (x + 1), height / 2, data[x].duracion * 3);
+                  text(data[x].universidad, 100 * (x + 1), (height / 2) + 50)
+                  fill(0);
+              }
+            }
 
 
     </script>
