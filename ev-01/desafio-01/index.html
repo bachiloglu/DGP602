@@ -24,6 +24,7 @@
 <script>
 var data;
 var cont = 0;
+var factor;
 var fijos = {
     "Entradas": ['Educativa', 'Política-Ideológica', 'Económica-Productiva', 'Cientíca-Tecnológica', 'Cultural', 'Territorial-Cono Sur'],
     "Indole": ['UTE', 'Nacional', 'Latinoamérica', 'Internacional'],
@@ -48,8 +49,8 @@ function setup() {
     //constantes();
     noLoop();
     for (var x = 0; x < 12; x++) {
-    	textAlign(CENTER);
-    	textSize(12);
+        textAlign(CENTER);
+        textSize(12);
         text(data[x].revista, 250 + (x * 125), height - 400, 150);
         textSize(9);
         text(data[x].fecha, 250 + (x * 125), height - 380, 150);
@@ -71,9 +72,16 @@ function draw() {
         textStyle(NORMAL);
         textSize(12);
         for (var i = 0; i < 6; i++) {
-            text(fijos.Entradas[i], 100, 180 + (40 * i),120);
+            text(fijos.Entradas[i], 100, 180 + (40 * i), 120);
         }
-       
+        for (var k = 0; k < 12; k++) {
+            for (var z = 0; z < 6; z++) {
+                console.log(data[k].entradas[z]);
+                rect(280 + (125 * k), 180 + (40 * z), (data[k].entradas[z]) * 10, 25);
+
+            }
+        }
+
 
     } else if (opcion == 1) {
         text('Índole', 100, 100);
@@ -82,12 +90,27 @@ function draw() {
         for (var i = 0; i < 4; i++) {
             text(fijos.Indole[i], 100, 180 + (40 * i));
         }
+        for (var k = 0; k < 12; k++) {
+            for (var z = 0; z < 4; z++) {
+                console.log(data[k].indole[z]);
+                rect(280 + (125 * k), 180 + (40 * z), (data[k].indole[z]) * 10, 25);
+
+            }
+        }
+
     } else {
         text('Tipo de Artículo', 100, 100);
         textStyle(NORMAL);
         textSize(12);
         for (var i = 0; i < 4; i++) {
             text(fijos.tipoArticulo[i], 100, 180 + (40 * i));
+        }
+        for (var k = 0; k < 12; k++) {
+            for (var z = 0; z < 5; z++) {
+                console.log(data[k].tipo[z]);
+                rect(280 + (125 * k), 180 + (40 * z), (data[k].tipo[z]) * 10, 25);
+
+            }
         }
     }
 
@@ -110,8 +133,8 @@ function elCambio() {
     clear();
     redraw();
     for (var x = 0; x < 12; x++) {
-    	textAlign(CENTER);
-    	textSize(12);
+        textAlign(CENTER);
+        textSize(12);
         text(data[x].revista, 250 + (x * 125), height - 400, 150);
         textSize(9);
         text(data[x].fecha, 250 + (x * 125), height - 380, 150);
