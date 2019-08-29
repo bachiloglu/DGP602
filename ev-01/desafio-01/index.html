@@ -75,9 +75,9 @@ function draw() {
             text(fijos.Entradas[i], 100, 180 + (40 * i), 120);
         }
         for (var k = 0; k < 12; k++) {
-            for (var z = 0; z < 6; z++) {
-                console.log(data[k].entradas[z]);
-                rect(280 + (125 * k), 180 + (40 * z), (data[k].entradas[z]) * 10, 25);
+            for (var i = 0; i < 6; i++) {
+                console.log(data[k].entradas[i]);
+                rect(280 + (125 * k), 180 + (40 * i), (data[k].entradas[i]) * 10, 25);
 
             }
         }
@@ -87,13 +87,13 @@ function draw() {
         text('Índole', 100, 100);
         textStyle(NORMAL);
         textSize(12);
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 6; i++) {
             text(fijos.Indole[i], 100, 180 + (40 * i));
         }
         for (var k = 0; k < 12; k++) {
-            for (var z = 0; z < 4; z++) {
-                console.log(data[k].indole[z]);
-                rect(280 + (125 * k), 180 + (40 * z), (data[k].indole[z]) * 10, 25);
+            for (var i = 0; i < 4; i++) {
+                console.log(data[k].indole[i]);
+                rect(280 + (125 * k), 165 + (40 * i), (data[k].indole[i]) * 10, 25);
 
             }
         }
@@ -102,13 +102,13 @@ function draw() {
         text('Tipo de Artículo', 100, 100);
         textStyle(NORMAL);
         textSize(12);
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 5; i++) {
             text(fijos.tipoArticulo[i], 100, 180 + (40 * i));
         }
         for (var k = 0; k < 12; k++) {
-            for (var z = 0; z < 5; z++) {
-                console.log(data[k].tipo[z]);
-                rect(280 + (125 * k), 180 + (40 * z), (data[k].tipo[z]) * 10, 25);
+            for (var i = 0; i < 6; i++) {
+                console.log(data[k].tipo[i]);
+                rect(280 + (125 * k), 165 + (40 * i), (data[k].tipo[i]) * 10, 25);
 
             }
         }
