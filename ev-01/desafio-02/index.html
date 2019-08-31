@@ -102,7 +102,6 @@ function draw() {
         text('Vitacura', 100, 100);
         for (var k = 0; k < 6; k++) {
             vertex(cont, height - lasComunas[0].valores[k] * 8 - factor);
-            //text(lasComunas[0].valores[k], cont+8, height - lasComunas[0].valores[k] * 8 - factor );
             cont += 200;
         }
         cont = 450;
@@ -127,7 +126,8 @@ function draw() {
 
 function elCambio() {
     clear();
-        text("Condiciones Laborales", 400, height - 100, 100);
+    redraw();
+    text("Condiciones Laborales", 400, height - 100, 100);
     text("Ambiente de negocios", 600, height - 100, 100);
     text("Condiciones Socioculturales", 800, height - 100, 100);
     text("Conectividad y Movilidad", 1000, height - 100, 100);
@@ -156,7 +156,6 @@ function elCambio() {
         text(dataFija.vivienda_entorno[y], 1475, height - dataFija.vivienda_entorno[y] * 8 - factor + 3);
         ellipse(1450, height - dataFija.vivienda_entorno[y] * 8 - factor, 5)
     }
-
 
 
 
