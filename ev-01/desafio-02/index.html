@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Desafío 02</title>
+    <link rel="stylesheet" type="text/css" href="../estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
     <meta charset="utf-8">
@@ -21,6 +22,14 @@
 </head>
 
 <body>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../desafio-01/index.html" >Revista UTE</a>
+        <a href="#" class="actual">ICVU 2019</a>
+        <a href="../desafio-03/index.html">PSU/NEM</a>
+        <a href="../desafio-04/index.html">DESEMPLEO</a>
+        <a href="../desafio-05/index.html">CALENTAMIENTO GLOBAL</a>
+    </nav>
 </body>
 <script>
 var factor = 200;
@@ -71,10 +80,10 @@ function setup() {
     noStroke();
     fill(200, 0, 0);
     for (var y = 0; y < 2; y++) {
-    	text(dataFija.condiciones_laborales[y], 475, height - dataFija.condiciones_laborales[y] * 8 - factor + 3);
-		ellipse(450, height - dataFija.condiciones_laborales[y] * 8 - factor, 5);
+        text(dataFija.condiciones_laborales[y], 475, height - dataFija.condiciones_laborales[y] * 8 - factor + 3);
+        ellipse(450, height - dataFija.condiciones_laborales[y] * 8 - factor, 5);
 
-		text(dataFija.ambiente_negocios[y], 675, height - dataFija.ambiente_negocios[y] * 8 - factor + 3);
+        text(dataFija.ambiente_negocios[y], 675, height - dataFija.ambiente_negocios[y] * 8 - factor + 3);
         ellipse(650, height - dataFija.ambiente_negocios[y] * 8 - factor, 5);
 
         text(dataFija.condiciones_socioculturales[y], 875, height - dataFija.condiciones_socioculturales[y] * 8 - factor + 3);
@@ -89,6 +98,8 @@ function setup() {
         text(dataFija.vivienda_entorno[y], 1475, height - dataFija.vivienda_entorno[y] * 8 - factor + 3);
         ellipse(1450, height - dataFija.vivienda_entorno[y] * 8 - factor, 5)
     }
+    stroke(4);
+    noFill();
 
 
 }
@@ -96,8 +107,7 @@ function setup() {
 function draw() {
     var opcion = selector.value();
     beginShape();
-    stroke(4);
-    noFill();
+
     if (opcion == 0) {
         text('Vitacura', 100, 100);
         for (var k = 0; k < 6; k++) {
@@ -138,10 +148,10 @@ function elCambio() {
     noStroke();
     fill(200, 0, 0);
     for (var y = 0; y < 2; y++) {
-    	text(dataFija.condiciones_laborales[y], 475, height - dataFija.condiciones_laborales[y] * 8 - factor + 3);
-		ellipse(450, height - dataFija.condiciones_laborales[y] * 8 - factor, 5);
+        text(dataFija.condiciones_laborales[y], 475, height - dataFija.condiciones_laborales[y] * 8 - factor + 3);
+        ellipse(450, height - dataFija.condiciones_laborales[y] * 8 - factor, 5);
 
-		text(dataFija.ambiente_negocios[y], 675, height - dataFija.ambiente_negocios[y] * 8 - factor + 3);
+        text(dataFija.ambiente_negocios[y], 675, height - dataFija.ambiente_negocios[y] * 8 - factor + 3);
         ellipse(650, height - dataFija.ambiente_negocios[y] * 8 - factor, 5);
 
         text(dataFija.condiciones_socioculturales[y], 875, height - dataFija.condiciones_socioculturales[y] * 8 - factor + 3);
@@ -156,6 +166,9 @@ function elCambio() {
         text(dataFija.vivienda_entorno[y], 1475, height - dataFija.vivienda_entorno[y] * 8 - factor + 3);
         ellipse(1450, height - dataFija.vivienda_entorno[y] * 8 - factor, 5)
     }
+    stroke(4);
+    noFill();
+    
 
 
 
