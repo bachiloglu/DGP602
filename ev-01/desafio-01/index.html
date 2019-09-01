@@ -41,7 +41,7 @@ var fijos = {
 }
 
 function preload() {
-    data = loadJSON('https://api.myjson.com/bins/1bddxr');
+    data = loadJSON('https://api.myjson.com/bins/rqk3r');
     console.log(data);
     console.log(fijos);
 
@@ -64,6 +64,10 @@ function setup() {
         text(data[x].revista, 250 + (x * 125), height - 400, 150);
         textSize(9);
         text(data[x].fecha, 250 + (x * 125), height - 380, 150);
+        textAlign(LEFT);
+        img = createImg(data[x].foto);
+        image(img, 260 + (x * 125), height - 300, 100, 150);
+
 
     }
 
@@ -92,6 +96,7 @@ function draw() {
             for (var i = 0; i < 6; i++) {
                 console.log(data[k].entradas[i]);
                 rect(280 + (125 * k), 180 + (40 * i), (data[k].entradas[i]) * 10, 25);
+                text(data[k].entradas[i], 285 + (125 * k)+(data[k].entradas[i]) * 10 , 195 + (40 * i));
 
             }
         }
@@ -107,9 +112,10 @@ function draw() {
         }
         fill(200, 0, 0);
         for (var k = 0; k < 12; k++) {
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 6; i++) {
                 console.log(data[k].indole[i]);
                 rect(280 + (125 * k), 165 + (40 * i), (data[k].indole[i]) * 10, 25);
+                text(data[k].indole[i], 285 + (125 * k)+(data[k].indole[i]) * 10 , 185 + (40 * i));
 
             }
         }
@@ -127,6 +133,7 @@ function draw() {
             for (var i = 0; i < 6; i++) {
                 console.log(data[k].tipo[i]);
                 rect(280 + (125 * k), 165 + (40 * i), (data[k].tipo[i]) * 10, 25);
+                text(data[k].tipo[i], 285 + (125 * k)+(data[k].tipo[i]) * 10 , 185 + (40 * i));
 
             }
         }
@@ -157,6 +164,8 @@ function elCambio() {
         text(data[x].revista, 250 + (x * 125), height - 400, 150);
         textSize(9);
         text(data[x].fecha, 250 + (x * 125), height - 380, 150);
+        img = createImg(data[x].foto);
+        image(img, 260 + (x * 125), height - 300, 100, 150);
 
     }
 }
