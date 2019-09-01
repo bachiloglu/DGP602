@@ -57,6 +57,7 @@ function setup() {
     selector.changed(elCambio);
     //constantes();
     noLoop();
+
     for (var x = 0; x < 12; x++) {
         textAlign(CENTER);
         textSize(12);
@@ -74,15 +75,19 @@ function draw() {
     textStyle(BOLD);
     textSize(20);
     textAlign(LEFT);
+    noStroke();
+
 
 
     if (opcion == 0) {
+        fill(0,0,0);
         text('Entradas', 100, 100);
         textStyle(NORMAL);
         textSize(12);
         for (var i = 0; i < 6; i++) {
             text(fijos.Entradas[i], 100, 180 + (40 * i), 120);
         }
+        fill(200, 0, 0);
         for (var k = 0; k < 12; k++) {
             for (var i = 0; i < 6; i++) {
                 console.log(data[k].entradas[i]);
@@ -93,12 +98,14 @@ function draw() {
 
 
     } else if (opcion == 1) {
+        fill(0,0,0);
         text('Índole', 100, 100);
         textStyle(NORMAL);
         textSize(12);
         for (var i = 0; i < 6; i++) {
             text(fijos.Indole[i], 100, 180 + (40 * i));
         }
+        fill(200, 0, 0);
         for (var k = 0; k < 12; k++) {
             for (var i = 0; i < 4; i++) {
                 console.log(data[k].indole[i]);
@@ -108,12 +115,14 @@ function draw() {
         }
 
     } else {
+        fill(0,0,0);
         text('Tipo de Artículo', 100, 100);
         textStyle(NORMAL);
         textSize(12);
         for (var i = 0; i < 5; i++) {
             text(fijos.tipoArticulo[i], 100, 180 + (40 * i));
         }
+        fill(200, 0, 0);
         for (var k = 0; k < 12; k++) {
             for (var i = 0; i < 6; i++) {
                 console.log(data[k].tipo[i]);
@@ -141,6 +150,7 @@ function draw() {
 function elCambio() {
     clear();
     redraw();
+    fill(0,0,0);
     for (var x = 0; x < 12; x++) {
         textAlign(CENTER);
         textSize(12);
