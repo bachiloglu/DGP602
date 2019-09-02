@@ -2,36 +2,82 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Desafío 05</title>
-    <link rel="stylesheet" type="text/css" href="../estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-    <meta charset="utf-8">
-    <style>
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
-    canvas {
-        display: block;
-    }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
-    <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../desafio-01/index.html" >Revista UTE</a>
-        <a href="../desafio-02/index.html">ICVU 2019</a>
-        <a href="../desafio-03/index.html">PSU/NEM</a>
-        <a href="../desafio-04/index.html">DESEMPLEO</a>
-        <a href="#" class="actual">CALENTAMIENTO GLOBAL</a>
-    </nav>
+
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script>
+    // Data from: https://data.giss.nasa.gov/gistemp/
+    // Mean from: https://earthobservatory.nasa.gov/world-of-change/DecadalTemp
+
+    var data;
+    var etiquetas = [];
+    var norte = [];
+    var sur = [];
+
+    function preload() {
+        data = loadTable('https://raw.githubusercontent.com/profesorfaco/datos/gh-pages/datos/global-warming.csv', 'csv', 'header')
+    }
+
+    function setup() {
+        noCanvas();
+        for (var i = 0; i < data.getRowCount(); i++) {
+            etiquetas.push(Number(data.get(i, 0)));
+            norte.push(Number(data.get(i, 2)) + 14);
+            sur.push(Number(data.get(i, 3)) + 14);
+        }
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: etiquetas,
+                datasets: [{
+                    label: 'Temperature in °C',
+                    data: norte,
+                    fill: false,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Temperature in °C',
+                    data: sur,
+                    fill: false,
+                    borderColor: 'rgba(50, 99, 132, 1)',
+                    backgroundColor: 'rgba(50, 99, 132, 0.5)',
+                    borderWidth: 1
+                }
+                ]
+            }
+
+        });
+    }
+
+    /*function draw(){
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.years,
+                datasets: [{
+                    label: 'Temperature in °C',
+                    data: data.temp,
+                    fill: false,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderWidth: 1
+                }]
+            },
+            options: {}
+        });
+    }*/
+    </script>
 </body>
-<script>
-</script>
 
 </html>
