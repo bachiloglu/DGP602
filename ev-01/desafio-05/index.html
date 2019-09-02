@@ -6,40 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Desafío 05</title>
+    <link rel="stylesheet" type="text/css" href="../estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../desafio-01/index.html">Revista UTE</a>
+        <a href="../desafio-02/index.html">ICVU 2019</a>
+        <a href="../desafio-03/index.html">PSU/NEM</a>
+        <a href="#" class="actual">DESEMPLEO</a>
+        <a href="../desafio-05/index.html">CALENTAMIENTO GLOBAL</a>
+    </nav>
+    <div id="hola">
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+</body>
+<script>
+// Data from: https://data.giss.nasa.gov/gistemp/
+// Mean from: https://earthobservatory.nasa.gov/world-of-change/DecadalTemp
 
-    <canvas id="myChart" width="400" height="200"></canvas>
-    <script>
-    // Data from: https://data.giss.nasa.gov/gistemp/
-    // Mean from: https://earthobservatory.nasa.gov/world-of-change/DecadalTemp
+var data;
+var etiquetas = [];
+var norte = [];
+var sur = [];
 
-    var data;
-    var etiquetas = [];
-    var norte = [];
-    var sur = [];
+function preload() {
+    data = loadTable('https://raw.githubusercontent.com/profesorfaco/datos/gh-pages/datos/global-warming.csv', 'csv', 'header')
+}
 
-    function preload() {
-        data = loadTable('https://raw.githubusercontent.com/profesorfaco/datos/gh-pages/datos/global-warming.csv', 'csv', 'header')
+function setup() {
+    noCanvas();
+    for (var i = 0; i < data.getRowCount(); i++) {
+        etiquetas.push(Number(data.get(i, 0)));
+        norte.push(Number(data.get(i, 2)) + 14);
+        sur.push(Number(data.get(i, 3)) + 14);
     }
-
-    function setup() {
-        noCanvas();
-        for (var i = 0; i < data.getRowCount(); i++) {
-            etiquetas.push(Number(data.get(i, 0)));
-            norte.push(Number(data.get(i, 2)) + 14);
-            sur.push(Number(data.get(i, 3)) + 14);
-        }
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: etiquetas,
-                datasets: [{
-                    label: 'Temperature in °C',
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: etiquetas,
+            datasets: [{
+                    label: 'Hemisferio Norte en °C',
                     data: norte,
                     fill: false,
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -47,37 +58,36 @@
                     borderWidth: 1
                 },
                 {
-                    label: 'Temperature in °C',
+                    label: 'Hemisferio Sur en °C',
                     data: sur,
                     fill: false,
                     borderColor: 'rgba(50, 99, 132, 1)',
                     backgroundColor: 'rgba(50, 99, 132, 0.5)',
                     borderWidth: 1
                 }
-                ]
-            }
+            ]
+        }
 
-        });
-    }
+    });
+}
 
-    /*function draw(){
-        myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: data.years,
-                datasets: [{
-                    label: 'Temperature in °C',
-                    data: data.temp,
-                    fill: false,
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                    borderWidth: 1
-                }]
-            },
-            options: {}
-        });
-    }*/
-    </script>
-</body>
+/*function draw(){
+    myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.years,
+            datasets: [{
+                label: 'Temperature in °C',
+                data: data.temp,
+                fill: false,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderWidth: 1
+            }]
+        },
+        options: {}
+    });
+}*/
+</script>
 
 </html>
