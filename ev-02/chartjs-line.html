@@ -16,6 +16,8 @@
         <a href="index.html">Index</a> <a href="chartjs-line.html" class="actual">Line chart</a> <a href="chartjs-bar.html">Bar chart</a> <a href="chartjs-radar.html">Radar chart</a> <a href="c3js-line.html">Line Chart</a> <a href="d3plus-treemap.html">Treemap</a>
     </nav>
 
+    <h3>Ingresos Brutos mensuales (en pesos a Septiembre de 2018)</h3>
+
     <canvas id="chart"></canvas>
 
     <script>
@@ -32,8 +34,8 @@
                     labels: etiquetas,
                     datasets: [{
                         label: 'Ingresos Brutos',
-                        backgroundColor: 'rgba(255, 55, 55,.1)',
-                        borderColor: 'rgb(255, 55, 55)',
+                        backgroundColor: 'rgba(255,255,191,.7)',
+                        borderColor: 'rgb(252,141,89)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
@@ -43,7 +45,6 @@
                 options: {
                     title: {
                         display: true,
-                        text: 'Ingresos brutos mensuales (en pesos a septiembre de 2018)'
                     },
                     legend: {
                         position: 'bottom'

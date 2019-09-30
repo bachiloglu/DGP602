@@ -15,7 +15,7 @@
     <nav>
         <a href="index.html">Index</a> <a href="chartjs-line.html">Line chart</a> <a href="chartjs-bar.html" class="actual">Bar chart</a> <a href="chartjs-radar.html">Radar chart</a> <a href="c3js-line.html">Line Chart</a> <a href="d3plus-treemap.html">Treemap</a>
     </nav>
-
+    <h3>Cantidad de titulados/as por año en la Universidad de Chile.</h3>
     <canvas id="chart"></canvas>
 
     <script>
@@ -35,17 +35,17 @@
                     labels: años,
                     datasets: [{
                         label: 'Diseñador/a Gráfico/a',
-                        backgroundColor: 'rgb(255, 55, 55)',
+                        backgroundColor: 'rgb(252,141,89)',
                         data: gra,
                     }, {
                         label: 'Diseñador/a Industrial',
-                        backgroundColor: 'rgb(0, 155, 100)',
+                        backgroundColor: 'rgb(153,213,148)',
                         data: ind
                     }]
                 },
                 options: {
                     title: {
-                        display: true,
+                        display: false,
                         text: 'Cantidad de egresados con título profesional en la Universidad de Chile'
                     },
                     legend: {
